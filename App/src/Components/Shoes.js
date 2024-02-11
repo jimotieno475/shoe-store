@@ -16,7 +16,7 @@ function Shoes() {
     <div className="container">
       <h1>Shue Store</h1>
       <SearchBar shoes={shoes}/>
-      <ul>
+      <div>
         {shoes.map((shoe) => (
           <li key={shoe.id}>
             <Link to={`/shoes/${shoe.id}`}>
@@ -34,7 +34,7 @@ function Shoes() {
             
           </li>
         ))}
-      </ul>
+      </div>
 
       <button><Link to="/add">Add</Link></button>
     </div>
