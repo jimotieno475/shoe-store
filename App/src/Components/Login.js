@@ -1,36 +1,21 @@
-import React, { useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import "./login.css";
 
-const Login = ({setUserId}) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const Login = ({ setUserId }) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const formStyle = {
-    maxWidth: "400px",
-    margin: "0 auto",
-  };
+  useEffect(() => {
+    // Adding class to body
+    document.body.classList.add("login-body");
 
-  const inputStyle = {
-    width: "100%",
-    marginBottom: "15px",
-    padding: "10px",
-    boxSizing: "border-box",
-  };
-
-  const buttonStyle = {
-    width: "100%",
-    padding: "10px",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    cursor: "pointer",
-  };
-
-  const errorStyle = {
-    color: "red",
-  };
-
+    // Cleanup function to remove the class when component unmounts
+    return () => {
+      document.body.classList.remove("login-body");
+    };
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -47,52 +32,59 @@ const Login = ({setUserId}) => {
       });
 
       const data = await res.json();
-      console.log(data)
 
       if (data.error) {
         return "";
       }
-    //   console.log('User ID:',data.id);
-    //   setUserId(data.id);
-    //   console.log(data)
-      navigate("/shoes")
+
+      navigate("/shoes");
     } catch (error) {
-      console.log('Login error:', error);
+      console.log("Login error:", error);
     }
   };
 
   return (
-    <div  style={formStyle}>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-      <div style={inputStyle} className="mb-3">
-        <label htmlFor="username">Username:</label>
-        <input
-          type="text"
-          id="username"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-        </div>
-         
-        <div style={inputStyle} className="mb-3">
-        <label htmlFor="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        </div>
+    <div className="login-page">
+      <div className="login-box">
+        <h2>Login</h2>
+        <form onSubmit={handleLogin}>
+          <div className="user-box">
+            <input
+              type="text"
+              id="username"
+              name="username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <label htmlFor="username">Username:</label>
+          </div>
 
-        <button type="submit" style={buttonStyle}>
-          Login
-        </button>
-      </form>
+          <div className="user-box">
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <label htmlFor="password">Password:</label>
+          </div>
+
+          <button type="submit">Login</button>
+        </form>
+        <div className="dont-have-account">Don't have an account?</div>
+        <div>
+          <Link to="/signup">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Sign Up here
+          </Link>
+        </div>
+      </div>
     </div>
   );
 };

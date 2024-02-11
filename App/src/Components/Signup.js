@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./sighnup.css"; // Make sure to import your CSS file
 
 function SignUp() {
   const [username, setUsername] = useState("");
@@ -8,35 +9,29 @@ function SignUp() {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
 
-  const formStyle = {
-    maxWidth: "400px",
-    margin: "0 auto",
+  const validEmail = (email) => {
+    const regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    return regex.test(email);
   };
 
-  const inputStyle = {
-    width: "100%",
-    marginBottom: "15px",
-    padding: "10px",
-    boxSizing: "border-box",
-  };
-
-  const buttonStyle = {
-    width: "100%",
-    padding: "10px",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    cursor: "pointer",
-  };
-
-  const errorStyle = {
-    color: "red",
+  const checkPassword = (password) => {
+    return password.length >= 6;
   };
 
   function handleSubmit(e) {
     e.preventDefault();
 
-   fetch("/user", {
+    if (!validEmail(email)) {
+      setError("Invalid email address");
+      return;
+    }
+
+    if (!checkPassword(password)) {
+      setError("Password must be at least 6 characters long");
+      return;
+    }
+
+    fetch("/user", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,51 +52,56 @@ function SignUp() {
   }
 
   return (
-    <div style={formStyle} className="container mt-5">
-      <div className="row justify-content-center">
-        <div className="col-md-6">
-          <form onSubmit={handleSubmit}>
-            <div style={inputStyle} className="mb-3">
-              <label htmlFor="username" className="form-label">
-                Username
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                id="username"
-                onChange={(e) => setUsername(e.target.value)}
-                required
-              />
-            </div>
-            <div style={inputStyle} className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-            <div style={inputStyle} className="mb-3">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <button style={buttonStyle} type="submit">
-              Register
-            </button>
-            {error && <p style={errorStyle}>{error}</p>}
-          </form>
+    <div className="signup-page">
+      <div className="container mt-5">
+        <div className="row justify-content-center">
+          <div className="col-md-6">
+            <form onSubmit={handleSubmit} className="p-4 border rounded">
+              <h2 className="mb-4 text-center">Sign Up</h2>
+              <div className="mb-3">
+                <label htmlFor="username" className="form-label">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="username"
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="email" className="form-label">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="mb-3">
+                <label htmlFor="password" className="form-label">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <div className="text-center">
+                <button type="submit" className="btn-primary">
+                  Register
+                </button>
+              </div>
+              {error && <p className="text-danger mt-2">{error}</p>}
+            </form>
+          </div>
         </div>
       </div>
     </div>
