@@ -7,12 +7,14 @@
 
 .container h1 {
   text-align: center;
+  text-decoration: underline;
 }
 
 .shoe-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 100px;
 }
 
 .shoe-item {
@@ -78,4 +80,73 @@
 .add-link {
   text-decoration: none;
   color: inherit;
+}
+
+.search-container {
+  position: fixed;
+  top: 30px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999; /* Ensure it stays on top of other content */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px; /* Increase padding */
+  border-radius: 35px; /* Increase border radius */
+  margin-top: 40px;
+}
+
+#searchInput {
+  box-sizing: border-box;
+  padding: 10px 20px; /* Increase padding */
+  width: 40px;
+  background: none;
+  border: 3px solid #080808;
+  border-radius: 25px;
+  color: #000000; /* Change text color here */
+  font-size: 18px; /* Increase font size */
+  transition: width 0.5s ease-in-out;
+  opacity: 0.6; /* Set the opacity to 0.5 when hovering */
+}
+
+#searchIcon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: block;
+  width: 11px;
+  height: 3px;
+  border-radius: 2px;
+  background: #ffffff4f;
+  transform: rotate(45deg);
+  transition: 0.3s ease-in-out;
+}
+
+#searchIcon::after {
+  position: absolute;
+  top: 0;
+  height: 0;
+  content: "";
+  width: 11px;
+  border-radius: 2px;
+  height: 3px;
+  background: #4d4b4b;
+  transform: rotate(0deg);
+  transition: 0.3s ease-in-out;
+}
+
+#searchInput:focus {
+  outline: none;
+  width: 200px;
+}
+
+#searchInput:focus + #searchIcon {
+  bottom: 19px;
+  right: 12px;
+  width: 14px;
+}
+
+#searchInput:focus + #searchIcon::after {
+  width: 14px;
+  transform: rotate(-90deg);
 }
