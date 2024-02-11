@@ -13,7 +13,10 @@ function Shoes() {
   }, []);
 
   return (
-    <div className="container">
+    <div
+      className="container"
+      style={{ backgroundImage: "linear-gradient(225deg, #15cfe8, #031a34)" }}
+    >
       <h1>Shoe Store</h1>
       <SearchBar shoes={shoes} />
       <div className="shoe-list">

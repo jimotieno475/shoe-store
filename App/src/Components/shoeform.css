@@ -25,11 +25,12 @@
   transition: color 1s, background-color 1s; /* Adding background-color transition */
   color: rgba(0, 0, 0, 0.94);
   font-size: 0.9em;
-  background-color: #ffffff; /* Change to the desired background color */
-  border: 1px solid #ced4da; /* Add border for better visibility */
+  background-color: transparent; /* Change to transparent background */
+  border: 1px solid #387abc; /* Add border for better visibility */
   border-radius: 4px; /* Add border-radius for rounded corners */
   padding: 10px; /* Add padding for spacing inside the input field */
 }
+
 
 .form-control:focus {
   border-color: #80bdff; /* Change border color on focus */
