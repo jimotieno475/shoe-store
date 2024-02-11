@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./shoeform.css";
 
 function ShoeForm() {
-  const [image_url, setImageUrl] = useState("");
+  const [image, setImage] = useState("");
   const [name, setName] = useState("");
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState(0);
@@ -19,7 +19,7 @@ function ShoeForm() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ image_url, brand, name, price, sizes }),
+      body: JSON.stringify({ image, brand, name, price, sizes }),
     })
       .then((r) => {
         if (r.ok) {
@@ -40,12 +40,12 @@ function ShoeForm() {
         <div className="col-md-6">
           <form onSubmit={handleSubmit} className="shoe-form">
             <div className="form-group">
-              <label htmlFor="image_url">Image URL</label>
+              <label htmlFor="image">Image URL</label>
               <input
                 type="text"
                 className="form-control"
-                id="image_url"
-                onChange={(e) => setImageUrl(e.target.value)}
+                id="image"
+                onChange={(e) => setImage(e.target.value)}
                 required
               />
             </div>
