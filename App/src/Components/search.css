@@ -139,9 +139,3 @@
 #searchBtn:hover {
   opacity: 0.4; /* Set the opacity to 0.5 when hovering */
 }
-body,
-html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
