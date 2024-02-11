@@ -19,9 +19,9 @@
   align-items: center;
   padding: 15px; /* Increase padding */
   border-radius: 35px; /* Increase border radius */
+  
 }
 /* Rest of your CSS styles */
-
 
 #searchInput {
   box-sizing: border-box;
@@ -81,11 +81,7 @@
 #searchBtn {
   border: none;
   background: rgb(33, 244, 251);
-  background: linear-gradient(
-    0deg,
-    rgb(33, 251, 47) 0%,
-    rgb(255, 0, 0) 100%
-  );
+  background: linear-gradient(0deg, rgb(33, 251, 47) 0%, rgb(255, 0, 0) 100%);
   color: #fffffffe;
   overflow: hidden;
   position: relative; /* Add relative positioning for pseudo-element */

@@ -32,9 +32,11 @@ function Shoes() {
           </div>
         ))}
       </div>
-      <button>
-        <Link to="/add">Add</Link>
-      </button>
+      <div className="center">
+        <button className="btn-9">
+          <Link to="/add">Add</Link>
+        </button>
+      </div>
     </div>
   );
 }
