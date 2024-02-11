@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./shoeform.css";
 
 function ShoeForm() {
   const [image_url, setImageUrl] = useState("");
@@ -9,31 +10,6 @@ function ShoeForm() {
   const [sizes, setSizes] = useState("");
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-
-  const formStyle = {
-    maxWidth: "400px",
-    margin: "0 auto",
-  };
-
-  const inputStyle = {
-    width: "100%",
-    marginBottom: "15px",
-    padding: "10px",
-    boxSizing: "border-box",
-  };
-
-  const buttonStyle = {
-    width: "100%",
-    padding: "10px",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    cursor: "pointer",
-  };
-
-  const errorStyle = {
-    color: "red",
-  };
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -59,14 +35,12 @@ function ShoeForm() {
   }
 
   return (
-    <div style={formStyle} className="container mt-5">
+    <div id="shoe-form-container" className="container">
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <form onSubmit={handleSubmit}>
-            <div style={inputStyle} className="mb-3">
-              <label htmlFor="image_url" className="form-label">
-                Image URL
-              </label>
+          <form onSubmit={handleSubmit} className="shoe-form">
+            <div className="form-group">
+              <label htmlFor="image_url">Image URL</label>
               <input
                 type="text"
                 className="form-control"
@@ -75,10 +49,8 @@ function ShoeForm() {
                 required
               />
             </div>
-            <div style={inputStyle} className="mb-3">
-              <label htmlFor="name" className="form-label">
-                Name
-              </label>
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -87,10 +59,8 @@ function ShoeForm() {
                 required
               />
             </div>
-            <div style={inputStyle} className="mb-3">
-              <label htmlFor="brand" className="form-label">
-                Brand
-              </label>
+            <div className="form-group">
+              <label htmlFor="brand">Brand</label>
               <input
                 type="text"
                 className="form-control"
@@ -99,10 +69,8 @@ function ShoeForm() {
                 required
               />
             </div>
-            <div style={inputStyle} className="mb-3">
-              <label htmlFor="price" className="form-label">
-                Price
-              </label>
+            <div className="form-group">
+              <label htmlFor="price">Price</label>
               <input
                 type="number"
                 className="form-control"
@@ -111,10 +79,8 @@ function ShoeForm() {
                 required
               />
             </div>
-            <div style={inputStyle} className="mb-3">
-              <label htmlFor="sizes" className="form-label">
-                Sizes
-              </label>
+            <div className="form-group">
+              <label htmlFor="sizes">Sizes</label>
               <input
                 type="text"
                 className="form-control"
@@ -123,10 +89,10 @@ function ShoeForm() {
                 required
               />
             </div>
-            <button style={buttonStyle} type="submit">
+            <button className="btn btn-primary" type="submit">
               Add
             </button>
-            {error && <p style={errorStyle}>{error}</p>}
+            {error && <p className="text-danger">{error}</p>}
           </form>
         </div>
       </div>
