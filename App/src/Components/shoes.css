@@ -1,86 +1,81 @@
-/* Reset default browser styles */
-body,
-h1,
-h2,
-h3,
-p,
-ul,
-li {
-  margin: 0;
-  padding: 0;
-}
-
-/* Global styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-}
-
 .container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(243, 243, 243);
+  font-family: "Montserrat", sans-serif;
 }
 
-h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
+.container h1 {
+  text-align: center;
 }
 
 .shoe-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  grid-gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .shoe-item {
+  margin: 1em;
+  padding: 1em;
+  border: 1px solid #ccc;
   background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shoe-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .image-container {
   position: relative;
   overflow: hidden;
-  border-radius: 5px;
 }
 
 .image-container img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
-  display: block;
+  transition: transform 0.3s ease;
+}
+
+.shoe-item:hover .image-container img {
+  transform: scale(1.2) translateY(-10%);
 }
 
 .image-text {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
-  padding: 10px;
+  padding: 0.5em;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
+.button-container {
+  text-align: center;
+  margin-top: 1em;
+}
+
+.button-container button {
+  background-color: rgba(10, 20, 10, 1);
+  color: rgb(220, 230, 220);
+  padding: 0.5em 1em;
   border: none;
-  border-radius: 5px;
-  text-decoration: none;
   cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-a {
-  color: inherit;
   text-decoration: none;
+  transition: background-color 0.3s ease;
 }
 
-a:hover {
-  text-decoration: underline;
+.button-container button:hover {
+  background-color: rgb(180, 220, 220);
+}
+
+.add-link {
+  text-decoration: none;
+  color: inherit;
 }
