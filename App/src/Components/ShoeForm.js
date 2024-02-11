@@ -43,9 +43,10 @@ function ShoeForm() {
               <label htmlFor="image">Image URL</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control transparent-input"
                 id="image"
                 onChange={(e) => setImage(e.target.value)}
+                placeholder="Image URL"
                 required
               />
             </div>
@@ -53,9 +54,10 @@ function ShoeForm() {
               <label htmlFor="name">Name</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control transparent-input"
                 id="name"
                 onChange={(e) => setName(e.target.value)}
+                placeholder="Name"
                 required
               />
             </div>
@@ -63,9 +65,10 @@ function ShoeForm() {
               <label htmlFor="brand">Brand</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control transparent-input"
                 id="brand"
                 onChange={(e) => setBrand(e.target.value)}
+                placeholder="Brand"
                 required
               />
             </div>
@@ -73,9 +76,10 @@ function ShoeForm() {
               <label htmlFor="price">Price</label>
               <input
                 type="number"
-                className="form-control"
+                className="form-control transparent-input"
                 id="price"
                 onChange={(e) => setPrice(e.target.value)}
+                placeholder="Price"
                 required
               />
             </div>
@@ -83,9 +87,10 @@ function ShoeForm() {
               <label htmlFor="sizes">Sizes</label>
               <input
                 type="text"
-                className="form-control"
+                className="form-control transparent-input"
                 id="sizes"
                 onChange={(e) => setSizes(e.target.value)}
+                placeholder="Sizes"
                 required
               />
             </div>

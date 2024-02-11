@@ -101,3 +101,21 @@
 
 // export default SingleShoe;
 
+
+
+
+
+.shoe-form.form-control {
+  /* Styles for form inputs */
+  width: 100%; /* Make form inputs full width */
+  padding: 10px; /* Add padding to form inputs */
+  font-size: 16px; /* Adjust input font size */
+  margin-bottom: 20px; /* Add margin bottom for spacing */
+  border-radius: 5px; /* Add border radius for rounded corners */
+  border: 1px solid #02e9f6; /* Add border */
+  background-color: rgba(
+    8,
+    190,
+    190,
+    0.329
+  ); Adjust the alpha value (0.7) to control transparency
