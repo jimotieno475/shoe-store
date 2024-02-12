@@ -6,6 +6,7 @@ const SearchBar = ({ onSearch }) => {
 
   const handleSearch = () => {
     onSearch(searchTerm);
+    setSearchTerm(""); // Reset the search term after search
   };
 
   return (
@@ -19,7 +20,7 @@ const SearchBar = ({ onSearch }) => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button id="searchBtn" onClick={handleSearch} >
+          <button id="searchBtn" onClick={handleSearch}>
             Search
           </button>
         </div>
@@ -29,3 +30,4 @@ const SearchBar = ({ onSearch }) => {
 };
 
 export default SearchBar;
+
