@@ -69,6 +69,7 @@
     hsla(0, 0%, 100%, 0) 1px,
     hsla(0, 0%, 0%, 0.1) 100%
   );
+  
   box-shadow: 0 60px 12px -18px hsla(0, 0%, 0%, 0.1),
     0 60px 20px -12px hsla(0, 0%, 0%, 0.1);
   animation: float 1s infinite ease-in-out alternate;

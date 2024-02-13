@@ -36,6 +36,7 @@ function Shoes() {
     >
       <h1>Shoe Store</h1>
       <SearchBar onSearch={handleSearch} shoes={shoes}/>
+      <Link to={`/cart`}>Cart</Link>
       <div className="shoe-list">
         {(searchTerm.trim() === "" ? shoes : filteredShoes).map((shoe) => (
           <div key={shoe.id} className="shoe-item">
@@ -54,7 +55,7 @@ function Shoes() {
       </div>
       <div className="center">
         <button className="btn-9">
-          <Link to="/add">Add</Link>
+          <Link to="/add" className="add">Add</Link>
         </button>
       </div>
     </div>

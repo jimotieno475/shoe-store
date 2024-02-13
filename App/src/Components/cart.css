@@ -59,7 +59,7 @@
 }
 
 
-.btn-9 {
+.btn-8 {
   --green: #1BFD9C;
   font-size: 15px;
   padding: 0.7em 2.7em;
@@ -76,12 +76,12 @@
   box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
 }
 
-.btn-9:hover {
+.btn-8:hover {
   color: #82ffc9;
   box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
 }
 
-.btn-9:before {
+.btn-8:before {
   content: "";
   position: absolute;
   left: -4em;
@@ -92,7 +92,7 @@
   background: linear-gradient(to right, transparent 1%, rgba(253, 72, 27, 0.1) 40%,rgba(112, 177, 149, 0.1) 60% , transparent 100%);
 }
 
-.btn-9:hover:before {
+.btn-8:hover:before {
   transform: translateX(15em);
 }
 

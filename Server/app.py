@@ -149,6 +149,50 @@ def add_to_cart():
 
     return jsonify({'message': 'Item added to the cart successfully'}), 200
 
+@app.route('/cartitems/<int:cart_item_id>', methods=['DELETE'])
+def remove_cart_item(cart_item_id):
+    cart_item = CartItem.query.get(cart_item_id)
+
+    if not cart_item:
+        return jsonify({'error': 'CartItem not found'}), 404
+
+    # Check if the item is in an active status
+    if cart_item.status != 'active':
+        return jsonify({'error': 'Item not found in the cart'}), 404
+
+    # Remove the item from the cart
+    db.session.delete(cart_item)
+    db.session.commit()
+
+    return jsonify({'message': 'Item removed from the cart successfully'}), 200
+
+from flask import jsonify
+
+@app.route('/cartitems/<int:user_id>', methods=['GET'])
+def get_cart_items(user_id):
+    user = User.query.get(user_id)
+
+    if not user:
+        return jsonify({'error': 'User not found'}), 404
+
+    # Retrieve the items in the user's cart
+    cart_items = CartItem.query.filter_by(user_id=user.id, status='active').all()
+
+    # Prepare the response data
+    items_data = []
+    for item in cart_items:
+        shoe = Shoe.query.get(item.shoe_id)  # Fix here to use 'item.shoe_id'
+        items_data.append({
+            'shoe_id': item.shoe_id,
+            'shoe_name': shoe.name,
+            'shoe_image': shoe.image_url,
+            'shoe_price': shoe.price,
+            'shoe_sizes': shoe.sizes,
+            # Add other details as needed
+        })
+
+    return jsonify({'cart_items': items_data}), 200
+
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)

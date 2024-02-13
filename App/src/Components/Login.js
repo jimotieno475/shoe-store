@@ -36,7 +36,8 @@ const Login = ({ setUserId }) => {
       if (data.error) {
         return "";
       }
-
+      setUserId=data.id;
+      console.log(setUserId)
       navigate("/shoes");
     } catch (error) {
       console.log("Login error:", error);
