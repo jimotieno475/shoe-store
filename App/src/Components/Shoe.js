@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import "./shoe.css"; // Import the CSS file
 import { FaShoppingCart } from "react-icons/fa"; // Import the cart icon
 
-function Shoe(userId) {
+function Shoe({userId}) {
   const { id } = useParams();
   const [shoe, setShoe] = useState({});
   const [addedToCart, setAddedToCart] = useState(false);
@@ -19,7 +19,7 @@ function Shoe(userId) {
 
   const handleAddToCart = () => {
     const data = {
-      user_id: 1, // Replace with the actual user ID
+      user_id: userId, // Replace with the actual user ID
       shoe_id: shoe.id,
     };
 

@@ -36,7 +36,7 @@ const Login = ({ setUserId }) => {
       if (data.error) {
         return "";
       }
-      setUserId=data.id;
+      setUserId(data.id)
       console.log(setUserId)
       navigate("/shoes");
     } catch (error) {

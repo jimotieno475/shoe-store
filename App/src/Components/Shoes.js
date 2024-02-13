@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SearchBar from "./Searchbar";
 import "./shoes.css";
+import { FaShoppingCart } from "react-icons/fa";
 
 function Shoes() {
   const [shoes, setShoes] = useState([]);
@@ -36,7 +37,7 @@ function Shoes() {
     >
       <h1>Shoe Store</h1>
       <SearchBar onSearch={handleSearch} shoes={shoes}/>
-      <Link to={`/cart`}>Cart</Link>
+       <Link to={`/cart`}> <FaShoppingCart /></Link>
       <div className="shoe-list">
         {(searchTerm.trim() === "" ? shoes : filteredShoes).map((shoe) => (
           <div key={shoe.id} className="shoe-item">

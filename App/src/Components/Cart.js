@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./cart.css";
 
-function Cart({ userId }) {
+function Cart({userId}) {
   const [cartItems, setCartItems] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ function Cart({ userId }) {
     console.log("Fetching data...");
     setLoading(true);
 
-    fetch(`/cartitems/1`)
+    fetch(`/cartitems/${userId}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Error: ${response.status}`);
@@ -18,7 +18,6 @@ function Cart({ userId }) {
         return response.json();
       })
       .then((data) => {
-        console.log("Data received:", data);
         setCartItems(data.cart_items);
         setLoading(false);
       })
@@ -32,7 +31,7 @@ function Cart({ userId }) {
 
   const handleDeleteCartItem = (cartItem) => {
     // Send DELETE request to the server
-    console.log(cartItem.id)
+    console.log(cartItem.id);
     fetch(`/cartitems/${cartItem.id}`, {
       method: "DELETE",
     })
@@ -72,7 +71,7 @@ function Cart({ userId }) {
             <p>Price: {cartItem.shoe_price}</p>
             <p>Sizes: {cartItem.shoe_sizes}</p>
             <button onClick={() => handleDeleteCartItem(cartItem)} className="btn-8">
-              Delete
+              Remove 
             </button>
           </div>
         ))}
