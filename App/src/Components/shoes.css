@@ -14,7 +14,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 150px;
+  margin-top: 20px;
 }
 
 .shoe-item {
@@ -22,10 +22,11 @@
   padding: 1em;
   border: 1px solid #ccc;
   background-color: #fff;
-  width: 300px;
+  width: 200px;
   position: relative;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
 }
 
 .shoe-item:hover {
@@ -36,12 +37,14 @@
 .image-container {
   position: relative;
   overflow: hidden;
+  border-radius:8px ;
 }
 
 .image-container img {
   max-width: 100%;
   height: auto;
   transition: transform 0.3s ease;
+  border-radius:8px 
 }
 
 .shoe-item:hover .image-container img {
@@ -106,4 +109,10 @@
   font-size: larger;
   font-style: oblique;
   font-weight: bold;
+}
+
+.top{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }

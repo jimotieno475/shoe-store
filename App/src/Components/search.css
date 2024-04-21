@@ -9,10 +9,7 @@
 }
 
 .search-container {
-  position: absolute; /* Change to absolute positioning */
-  top: 30px; /* Adjust as needed */
-  left: 50%;
-  transform: translateX(-50%);
+  position: sticky; /* Change to absolute positioning */
   z-index: 999; /* Ensure it stays on top of other content */
   display: flex;
   justify-content: center;

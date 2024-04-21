@@ -12,7 +12,7 @@ import Cart from "./Cart";
 
 export default function App() {
   const[userId,setUserId]=useState(null);
-
+  const id = localStorage.getItem("userId");
   return (
     <div>
       <Router>

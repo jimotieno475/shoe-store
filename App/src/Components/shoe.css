@@ -25,13 +25,14 @@ body {
   margin: 35px auto;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
   overflow: hidden;
-  border-radius: 5px;
-  padding: 40px; /* Increased padding */
+  border-radius: 8px;
+  padding: 8px; /* Increased padding */
 }
 
 figure img {
   max-width: 100%; /* Set maximum width to 100% */
   margin: 0; /* Remove margin to center the image */
+  border-radius: 8px;
 }
 
 figure {
